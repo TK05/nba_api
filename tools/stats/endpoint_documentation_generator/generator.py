@@ -2,6 +2,8 @@ import json
 import urllib.parse
 from datetime import datetime
 
+from nba_api.stats.library import parameters as class_parameters
+
 from .template import endpoint_documentation_template, data_set_template, parameter_line_template
 
 from tools.library.functions import get_python_variable_name
@@ -10,18 +12,27 @@ from tools.stats.endpoint_analysis.analysis import load_endpoint_file
 from tools.stats.library.mapping import endpoint_list, parameter_map, parameter_variations
 
 
-def get_endpoint_query_string_parameters(parameters, nullable_parameters, parameter_patterns):
+def get_endpoint_query_string_parameters_and_defaults(parameters, nullable_parameters, parameter_patterns):
     params = {}
+    params_defaults = {}
     for parameter in parameters:
         if parameter in nullable_parameters:
             value = ''
+            default_value = ''
         else:
             map_key = 'non-nullable'
             pattern_key = parameter_map[parameter][map_key][parameter_patterns[parameter]]
             value = parameter_variations[pattern_key]['parameter_value']
+            parameter_class = parameter_variations[pattern_key]['default_py_value']
+            if parameter_class:
+                default_value = getattr(class_parameters, parameter_variations[pattern_key]['default_py_value'].split('.')[0]).default
+            else:
+                default_value = ''
         params[parameter] = value
+        params_defaults[parameter] = default_value
     valid_url = urllib.parse.urlencode(params)
-    return valid_url
+
+    return valid_url, params_defaults
 
 
 def get_endpoint_documentation(endpoint, endpoints_information):
@@ -33,9 +44,10 @@ def get_endpoint_documentation(endpoint, endpoints_information):
     parameter_patterns = endpoint_analysis['parameter_patterns']
     data_sets = endpoint_analysis['data_sets']
 
-    query_string_parameters = get_endpoint_query_string_parameters(parameters=parameters,
-                                                                   nullable_parameters=nullable_parameters,
-                                                                   parameter_patterns=parameter_patterns)
+    query_string_parameters, params_defaults = get_endpoint_query_string_parameters_and_defaults(
+                                                                            parameters=parameters,
+                                                                            nullable_parameters=nullable_parameters,
+                                                                            parameter_patterns=parameter_patterns)
 
     data_set_texts = []
     for data_set_name, columns in data_sets.items():
@@ -64,6 +76,7 @@ def get_endpoint_documentation(endpoint, endpoints_information):
 
         parameter_line = parameter_line_template.format(api_parameter_name=parameter,
                                                         python_parameter_variable=python_parameter_variable,
+                                                        default_value=params_defaults[parameter],
                                                         pattern=pattern, required=required, nullable=nullable)
         if parameter in nullable_parameters:
             parameter_texts.append(parameter_line)
