@@ -2,7 +2,7 @@ import json
 import urllib.parse
 from datetime import datetime
 
-from .template import endpoint_documentation_template, data_set_template, parameter_line_template
+from .template import endpoint_documentation_template, data_set_template, parameter_line_template, parameter_pattern_template
 
 from tools.library.functions import get_python_variable_name
 from tools.library.file_handler import save_file, get_file_path
@@ -47,6 +47,7 @@ def get_endpoint_documentation(endpoint, endpoints_information):
         data_set_texts.append(data_set_text)
 
     parameter_texts = []
+    parameter_pattern_texts = []
     for parameter in reversed(parameters):
         pattern = ''
         if parameter_patterns[parameter]:
@@ -68,11 +69,19 @@ def get_endpoint_documentation(endpoint, endpoints_information):
         parameter_line = parameter_line_template.format(api_parameter_name=parameter,
                                                         python_parameter_variable=python_parameter_variable,
                                                         default_value=default_value,
-                                                        pattern=pattern, required=required, nullable=nullable)
+                                                        required=required, nullable=nullable)
+
         if parameter in nullable_parameters:
             parameter_texts.append(parameter_line)
+            # Maintain same order as parameters table but do not show when parameter has no pattern.
+            if pattern:
+                parameter_pattern_texts.append(parameter_pattern_template.format(api_parameter_name=parameter,
+                                                                                 parameter_pattern=pattern))
         else:
             parameter_texts.insert(0, parameter_line)
+            if pattern:
+                parameter_pattern_texts.insert(0, parameter_pattern_template.format(api_parameter_name=parameter,
+                                                                                    parameter_pattern=pattern))
 
     json_text = json.dumps(endpoint_analysis, sort_keys=True, indent=4)
 
@@ -80,6 +89,7 @@ def get_endpoint_documentation(endpoint, endpoints_information):
                                                                 query_string_parameters=query_string_parameters,
                                                                 json=json_text,
                                                                 parameters='\n'.join(parameter_texts),
+                                                                parameter_patterns='\n'.join(parameter_pattern_texts),
                                                                 data_sets='\n'.join(data_set_texts),
                                                                 validated_date=datetime.now().date())
 

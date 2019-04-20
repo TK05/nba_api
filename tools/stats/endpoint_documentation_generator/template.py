@@ -8,9 +8,14 @@ endpoint_documentation_template = '''# {endpoint}
 >[https://stats.nba.com/stats/{endpoint__lowercase}?{query_string_parameters}](https://stats.nba.com/stats/{endpoint__lowercase}?{query_string_parameters})
 
 ## Parameters
-API Parameter Name | Python Parameter Variable | Default Value | Pattern | Required | Nullable
------------- | ------------ | :-----------: | :-----------: | :---: | :---:
+API Parameter Name | Python Parameter Variable | Default Value | Required | Nullable
+------------ | ------------ | :-----------: | :---: | :---:
 {parameters}
+
+## Parameter Patterns
+API Parameter Name | Pattern
+------------ | ------------ 
+{parameter_patterns}
 
 ## Data Sets
 {data_sets}
@@ -28,4 +33,6 @@ data_set_template = '''#### {data_set_name} `{method_name}`
 ```
 '''
 
-parameter_line_template = '''[_**{api_parameter_name}**_](https://github.com/swar/nba_api/blob/master/docs/nba_api/stats/library/parameters.md#{api_parameter_name}) | {python_parameter_variable} | {default_value} | {pattern} | {required} | {nullable} | '''
+parameter_line_template = '''[_**{api_parameter_name}**_](https://github.com/swar/nba_api/blob/master/docs/nba_api/stats/library/parameters.md#{api_parameter_name}) | {python_parameter_variable} | {default_value} | {required} | {nullable} | '''
+
+parameter_pattern_template = '''{api_parameter_name} | {parameter_pattern} | '''
