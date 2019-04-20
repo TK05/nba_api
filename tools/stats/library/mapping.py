@@ -197,7 +197,7 @@ parameter_variations = {
     },
     'GameID': {
         'default_py_value': None,
-        'parameter_value': '0021700807',  # CLE vs MIN - 2018-02-07
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'GameIDNullable': {
@@ -542,7 +542,7 @@ parameter_variations = {
     },
     'StartPeriod': {
         'default_py_value': 'StartPeriod.default',
-        'parameter_value': '1',
+        'parameter_value': StartPeriod.default,
         'parameter_error_value': 'a',
     },
     'StartPeriodNullable': {
@@ -552,7 +552,7 @@ parameter_variations = {
     },
     'EndPeriod': {
         'default_py_value': 'EndPeriod.default',
-        'parameter_value': '1',
+        'parameter_value': EndPeriod.default,
         'parameter_error_value': 'a',
     },
     'EndPeriodNullable': {
@@ -607,12 +607,12 @@ parameter_variations = {
     },
     'PlayerID': {
         'default_py_value': None,
-        'parameter_value': '2544',  # Lebron James
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'PlayerIDNullable': {
         'default_py_value': "''",
-        'parameter_value': '',  # Lebron James
+        'parameter_value': '',
         'parameter_error_value': 'a',
     },
     'DefPlayerIDNullable': {
@@ -627,117 +627,117 @@ parameter_variations = {
     },
     'VsPlayerID': {
         'default_py_value': None,
-        'parameter_value': '2544',  # Lebron James
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'PlayerID1': {
         'default_py_value': None,
-        'parameter_value': '202681',  # Kyrie Irving
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'PlayerID2': {
         'default_py_value': None,
-        'parameter_value': '203078',  # Bradley Beal
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'PlayerID3': {
         'default_py_value': None,
-        'parameter_value': '203507',  # Giannis Antetokounmpo
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'PlayerID4': {
         'default_py_value': None,
-        'parameter_value': '201567',  # Kevin Love
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'PlayerID5': {
         'default_py_value': None,
-        'parameter_value': '203954',  # Joel Embiid
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'VsPlayerID1': {
         'default_py_value': None,
-        'parameter_value': '201566',  # Russel Westbrook
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'VsPlayerID2': {
         'default_py_value': None,
-        'parameter_value': '201939',  # Stephen Curry
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'VsPlayerID3': {
         'default_py_value': None,
-        'parameter_value': '201935',  # James Harden
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'VsPlayerID4': {
         'default_py_value': None,
-        'parameter_value': '201142',  # Kevin Durant
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'VsPlayerID5': {
         'default_py_value': None,
-        'parameter_value': '203076',  # Anthony Davis
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'EastPlayer1': {
         'default_py_value': None,
-        'parameter_value': '202681',  # Kyrie Irving
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'EastPlayer2': {
         'default_py_value': None,
-        'parameter_value': '203078',  # Bradley Beal
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'EastPlayer3': {
         'default_py_value': None,
-        'parameter_value': '2544',  # Lebron James
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'EastPlayer4': {
         'default_py_value': None,
-        'parameter_value': '201567',  # Kevin Love
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'EastPlayer5': {
         'default_py_value': None,
-        'parameter_value': '203954',  # Joel Embiid
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'WestPlayer1': {
         'default_py_value': None,
-        'parameter_value': '201566',  # Russel Westbrook
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'WestPlayer2': {
         'default_py_value': None,
-        'parameter_value': '201939',  # Stephen Curry
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'WestPlayer3': {
         'default_py_value': None,
-        'parameter_value': '201935',  # James Harden
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'WestPlayer4': {
         'default_py_value': None,
-        'parameter_value': '201142',  # Kevin Durant
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'WestPlayer5': {
         'default_py_value': None,
-        'parameter_value': '203076',  # Anthony Davis
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'PlayerIDList': {
         'default_py_value': None,
-        'parameter_value': '202681,203078,2544,201567,203954',  # Kyrie Irving & Bradley Beal & Lebron James & Kevin Love & Joel Embiid
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'VsPlayerIDList': {
         'default_py_value': None,
-        'parameter_value': '201566,201939,201935,201142,203076',  # Russel Westbrook & Stephen Curry & James Harden & Kevin Durant & Anthony Davis
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'PlayerOrTeam': {
@@ -777,12 +777,12 @@ parameter_variations = {
     },
     'PlayerTeamID': {
         'default_py_value': None,
-        'parameter_value': '1610612739',  # Cleveland Cavaliers
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'VsTeamID': {
         'default_py_value': None,
-        'parameter_value': '1610612765',  # Detroit Pistons
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'VsTeamIDNullable': {
@@ -792,12 +792,12 @@ parameter_variations = {
     },
     'TeamID': {
         'default_py_value': None,
-        'parameter_value': '1610612739',  # Cleveland Cavaliers
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'TeamIDNullable': {
         'default_py_value': "''",
-        'parameter_value': '0',  # Cleveland Cavaliers: 1610612739
+        'parameter_value': '',  # TODO: Double check this is either '' or 0
         'parameter_error_value': 'a',
     },
     'TodaysOpponent': {
@@ -812,12 +812,12 @@ parameter_variations = {
     },
     'OpponentTeamIDNullable': {
         'default_py_value': "''",
-        'parameter_value': '0',  # Dallas Mavericks: 1610612742
+        'parameter_value': '',  # TODO: Double check this is either '' or 0
         'parameter_error_value': 'a',
     },
     'DefTeamID': {
         'default_py_value': None,
-        'parameter_value': '1610612742',  # Dallas Mavericks
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'DefTeamIDNullable': {
@@ -827,7 +827,7 @@ parameter_variations = {
     },
     'OffTeamID': {
         'default_py_value': None,
-        'parameter_value': '1610612739',  # Cleveland Cavaliers
+        'parameter_value': None,
         'parameter_error_value': 'a',
     },
     'OffTeamIDNullable': {
