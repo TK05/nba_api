@@ -64,6 +64,41 @@ missing_required_parameters = {
     'VideoDetails': {'Season': Season.default},  # Cleveland Cavaliers
 }
 
+default_value_for_valid_response = {
+    'GameID': '0021700807',  # CLE vs MIN - 2018-02-07
+    'StartPeriod': '1',
+    'EndPeriod': '1',
+    'PlayerID': '2544',  # Lebron James
+    'VsPlayerID': '2544',  # Lebron James
+    'PlayerID1': '202681',  # Kyrie Irving
+    'PlayerID2': '203078',  # Bradley Beal
+    'PlayerID3': '203507',  # Giannis Antetokounmpo
+    'PlayerID4': '201567',  # Kevin Love
+    'PlayerID5':  '203954',  # Joel Embiid
+    'VsPlayerID1': '201566',  # Russel Westbrook
+    'VsPlayerID2': '201939',  # Stephen Curry
+    'VsPlayerID3': '201935',  # James Harden
+    'VsPlayerID4': '201142',  # Kevin Durant
+    'VsPlayerID5': '203076',  # Anthony Davis
+    'EastPlayer1': '202681',  # Kyrie Irving
+    'EastPlayer2': '203078',  # Bradley Beal
+    'EastPlayer3': '2544',  # Lebron James
+    'EastPlayer4': '201567',  # Kevin Love
+    'EastPlayer5': '203954',  # Joel Embiid
+    'WestPlayer1': '201566',  # Russel Westbrook
+    'WestPlayer2': '201939',  # Stephen Curry
+    'WestPlayer3': '201935',  # James Harden
+    'WestPlayer4': '201142',  # Kevin Durant
+    'WestPlayer5': '203076',  # Anthony Davis
+    'PlayerIDList': '202681,203078,2544,201567,203954',  # Kyrie Irving & Bradley Beal & Lebron James & Kevin Love & Joel Embiid
+    'VsPlayerIDList': '201566,201939,201935,201142,203076',  # Russel Westbrook & Stephen Curry & James Harden & Kevin Durant & Anthony Davis
+    'PlayerTeamID': '1610612739',  # Cleveland Cavaliers
+    'VsTeamID': '1610612765',  # Detroit Pistons
+    'TeamID': '1610612739',  # Cleveland Cavaliers
+    'DefTeamID': '1610612742',  # Dallas Mavericks
+    'OffTeamID': '1610612739',  # Cleveland Cavaliers
+}
+
 
 def get_patterns_from_response(nba_stats_response):
     parameter_patterns = {}
