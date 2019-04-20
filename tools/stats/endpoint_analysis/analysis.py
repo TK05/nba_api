@@ -182,7 +182,10 @@ def required_parameters_test(endpoint):
                 map_key = 'nullable'
             parameter_info_key = list(parameter_map[prop][map_key].values())[0]
             parameter_info = parameter_variations[parameter_info_key]
-            required_params[prop] = parameter_info['parameter_value']
+            if prop in default_value_for_valid_response:
+                required_params[prop] = default_value_for_valid_response[prop]
+            else:
+                required_params[prop] = parameter_info['parameter_value']
             required_params_errors[prop] = parameter_info['parameter_error_value']
         else:
             print('Property "{prop}" not in parameter_map'.format(prop=prop))
@@ -217,7 +220,10 @@ def minimal_requirement_tests(endpoint, required_params, pause=1):
                     map_key = 'nullable'
                 parameter_info_key = parameter_map[prop][map_key][pattern]
                 parameter_info = parameter_variations[parameter_info_key]
-                required_params[prop] = parameter_info['parameter_value']
+                if prop in default_value_for_valid_response:
+                    required_params[prop] = default_value_for_valid_response[prop]
+                else:
+                    required_params[prop] = parameter_info['parameter_value']
         time.sleep(pause)
         nba_stats_response = NBAStatsHTTP().send_api_request(endpoint=endpoint, parameters=required_params)
 
@@ -241,7 +247,10 @@ def minimal_requirement_tests(endpoint, required_params, pause=1):
                 map_key = 'nullable'
             parameter_info_key = list(parameter_map[prop][map_key].values())[0]
             parameter_info = parameter_variations[parameter_info_key]
-            all_params[prop] = parameter_info['parameter_value']
+            if prop in default_value_for_valid_response:
+                required_params[prop] = default_value_for_valid_response[prop]
+            else:
+                required_params[prop] = parameter_info['parameter_value']
             all_params_errors[prop] = parameter_info['parameter_error_value']
         else:
             print(prop, 'not found in parameter map - minimal test')

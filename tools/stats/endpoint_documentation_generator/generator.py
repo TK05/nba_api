@@ -6,7 +6,7 @@ from .template import endpoint_documentation_template, data_set_template, parame
 
 from tools.library.functions import get_python_variable_name
 from tools.library.file_handler import save_file, get_file_path
-from tools.stats.endpoint_analysis.analysis import load_endpoint_file
+from tools.stats.endpoint_analysis.analysis import load_endpoint_file, default_value_for_valid_response
 from tools.stats.library.mapping import endpoint_list, parameter_map, parameter_variations
 
 
@@ -15,6 +15,8 @@ def get_endpoint_query_string_parameters(parameters, nullable_parameters, parame
     for parameter in parameters:
         if parameter in nullable_parameters:
             value = ''
+        elif parameter in default_value_for_valid_response:
+            value = default_value_for_valid_response[parameter]
         else:
             map_key = 'non-nullable'
             pattern_key = parameter_map[parameter][map_key][parameter_patterns[parameter]]
